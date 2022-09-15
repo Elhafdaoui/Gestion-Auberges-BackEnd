@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface ClientDao extends JpaRepository<Clients, Long> {
     Optional<Clients> findClientsByEmail(String email);
     Optional<Clients> findClientsById(Long id);
+
+    Optional<Clients> findClientsByCin(String cin);
 }

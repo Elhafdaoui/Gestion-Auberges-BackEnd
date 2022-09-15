@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.Zakaria.auberge.Entities.Users;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,12 +30,12 @@ public class UsersController {
     }
 
     @PostMapping(path = "signup")
-    public String ajouterUtilisateur(@RequestBody Users user) {
+    public String ajouterUtilisateur(@Valid @RequestBody Users user) {
         return usersService.ajouterUtilisateur(user);
     }
 
     @PutMapping(path = "dashboard/users/update/{id}")
-    public String modifierUtilisateur(@RequestBody Users user, @PathVariable Long id) {
+    public String modifierUtilisateur(@Valid @RequestBody Users user, @PathVariable Long id) {
         return usersService.modifierUtilisateur(user,id);
     }
 

@@ -17,7 +17,7 @@ public class ClientImplementation implements ClientService {
 
     @Override
     public String ajouterClient(Clients client) {
-        if(clientDao.findClientsByEmail(client.getEmail()).isPresent())
+        if(clientDao.findClientsByCin(client.getCin()).isPresent())
             return "Client existe déjà ";
 
         clientDao.save(client);

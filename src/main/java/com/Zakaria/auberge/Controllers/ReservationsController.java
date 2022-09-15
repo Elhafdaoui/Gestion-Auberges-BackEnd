@@ -5,6 +5,7 @@ import com.Zakaria.auberge.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class ReservationsController {
     }
 
     @PutMapping(path = "dashboard/reservations/update/{id}")
-    public String modifierReservation(@RequestBody Reservations reservation, @PathVariable Long id) {
+    public String modifierReservation(@Valid @RequestBody Reservations reservation, @PathVariable Long id) {
         return reservationService.modifierReservation(reservation,id);
     }
 
